@@ -45,7 +45,7 @@ public class Msad0EventsService {
 	private String topicFirmaStartSign;
 	
 	
-	public void documentaleDelete(Payload payload) {
+	public Payload documentaleDelete(Payload payload) {
 		Msad0CreatedEvent event = new Msad0CreatedEvent();
 		event.setData(payload);
 		event.setId(UUID.randomUUID().toString());
@@ -55,6 +55,8 @@ public class Msad0EventsService {
 		event.setIdSuperpratica(payload.getIdSuperpratica());
 		
 		this.producer.send(this.topicDocumentaleDelete, event);
+		
+		return payload;
 	}
 
 	//Aggiunte io 
