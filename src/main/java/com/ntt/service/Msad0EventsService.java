@@ -22,7 +22,6 @@ public class Msad0EventsService {
 	@Value("${topic.customer.name:SDH_SVIL_MSAD0_DOCUMENTALE_DELETED_V1}")
 	private String topicDocumentaleDelete;
 	
-	//aggiunte io
 	@Value("${topic.customer.name:SDH_SVIL_MSAD0_PRATICA_ACTIVATE_V1}")
 	private String topicPraticaActivate;
 	
@@ -59,8 +58,7 @@ public class Msad0EventsService {
 		return payload;
 	}
 
-	//Aggiunte io 
-	public void praticaActivate(Payload payload) {
+	public Payload praticaActivate(Payload payload) {
 		Msad0CreatedEvent event = new Msad0CreatedEvent();
 		event.setData(payload);
 		event.setId(UUID.randomUUID().toString());
@@ -70,9 +68,10 @@ public class Msad0EventsService {
 		event.setIdSuperpratica(payload.getIdSuperpratica());
 		
 		this.producer.send(this.topicPraticaActivate, event);
+		return payload;
 	}
 	
-	public void documentaleSignedOfferSaved(Payload payload) {
+	public Payload docSignedOffered(Payload payload) {
 		Msad0CreatedEvent event = new Msad0CreatedEvent();
 		event.setData(payload);
 		event.setId(UUID.randomUUID().toString());
@@ -82,9 +81,11 @@ public class Msad0EventsService {
 		event.setIdSuperpratica(payload.getIdSuperpratica());
 		
 		this.producer.send(this.topicDocumentaleSignedOfferSaved, event);
+		
+		return payload;
 	}
 	
-	public void documentalePartiallySignedOfferSaved(Payload payload) {
+	public Payload documentalePartiallySignedOfferSaved(Payload payload) {
 		Msad0CreatedEvent event = new Msad0CreatedEvent();
 		event.setData(payload);
 		event.setId(UUID.randomUUID().toString());
@@ -94,9 +95,11 @@ public class Msad0EventsService {
 		event.setIdSuperpratica(payload.getIdSuperpratica());
 		
 		this.producer.send(this.topicDocumentalePartiallySignedOfferSaved, event);
+		
+		return payload;
 	}
 	
-	public void firmaOfferSigned(Payload payload) {
+	public Payload firmaOfferSigned(Payload payload) {
 		Msad0CreatedEvent event = new Msad0CreatedEvent();
 		event.setData(payload);
 		event.setId(UUID.randomUUID().toString());
@@ -106,9 +109,11 @@ public class Msad0EventsService {
 		event.setIdSuperpratica(payload.getIdSuperpratica());
 		
 		this.producer.send(this.topicFirmaOfferSigned, event);
+		
+		return payload;
 	}
 	
-	public void documentaleOfferSaved(Payload payload) {
+	public Payload documentaleOfferSaved(Payload payload) {
 		Msad0CreatedEvent event = new Msad0CreatedEvent();
 		event.setData(payload);
 		event.setId(UUID.randomUUID().toString());
@@ -118,9 +123,11 @@ public class Msad0EventsService {
 		event.setIdSuperpratica(payload.getIdSuperpratica());
 		
 		this.producer.send(this.topicDocumentaleOfferSaved, event);
+		
+		return payload;
 	}
 	
-	public void firmaOfferReady(Payload payload) {
+	public Payload firmaOfferReady(Payload payload) {
 		Msad0CreatedEvent event = new Msad0CreatedEvent();
 		event.setData(payload);
 		event.setId(UUID.randomUUID().toString());
@@ -130,9 +137,11 @@ public class Msad0EventsService {
 		event.setIdSuperpratica(payload.getIdSuperpratica());
 		
 		this.producer.send(this.topicFirmaOfferReady, event);
+		
+		return payload;
 	}
 	
-	public void firmaStartSign(Payload payload) {
+	public Payload firmaStartSign(Payload payload) {
 		Msad0CreatedEvent event = new Msad0CreatedEvent();
 		event.setData(payload);
 		event.setId(UUID.randomUUID().toString());
@@ -142,6 +151,8 @@ public class Msad0EventsService {
 		event.setIdSuperpratica(payload.getIdSuperpratica());
 		
 		this.producer.send(this.topicFirmaStartSign, event);
+		
+		return payload;
 	}
 
 }

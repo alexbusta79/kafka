@@ -8,7 +8,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ntt.command.DeleteCommand;
+import com.ntt.command.*;
+
 import com.ntt.entity.Payload;
 import com.ntt.service.Msad0Service;
 
@@ -26,13 +27,7 @@ public class Msad0Controller extends BaseController {
 	@Autowired
 	private BeanFactory beanFactory;
 	
-	//delete
-	@PostMapping(path = "/delete")
-	public Payload save(@RequestBody Payload payload) {
-		return this.service.delete(payload);
-	}
-	
-	@PostMapping("/delete2")
+	@PostMapping("/delete")
 	public ResponseEntity<Payload> delete(@RequestBody Payload payment) throws Exception {
 		logger.info("requestId={}|operazione=delete|esito=OK", "123456");
 		
@@ -46,40 +41,115 @@ public class Msad0Controller extends BaseController {
 		return ResponseEntity.ok(result);
 	}
 	
-	//aggiunto io, path provvisori
-	@PostMapping(path = "/activate")
-	public Payload activate(@RequestBody Payload payload) {
-		return this.service.activate(payload);
-	}
-	
-	@PostMapping(path = "/docSignedOffered")
-	public Payload docSignedOffered(@RequestBody Payload payload) {
-		return this.service.docSignedOffered(payload);
-	}
-	
-	@PostMapping(path = "/partiallySignedOffered")
-	public Payload partiallySignedOffered(@RequestBody Payload payload) {
-		return this.service.partiallySignedOffered(payload);
-	}
-	
-	@PostMapping(path = "/firmaOfferSigned")
-	public Payload firmaOfferSigned(@RequestBody Payload payload) {
-		return this.service.firmaOfferSigned(payload);
-	}
-	
-	@PostMapping(path = "/offerSaved")
-	public Payload offerSaved(@RequestBody Payload payload) {
-		return this.service.offerSaved(payload);
-	}
-	
-	@PostMapping(path = "/offerReady")
-	public Payload offerReady(@RequestBody Payload payload) {
-		return this.service.offerReady(payload);
-	}
-	
-	@PostMapping(path = "/startSign")
-	public Payload startSign(@RequestBody Payload payload) {
-		return this.service.startSign(payload);
+	/***********************************************/
+
+	@PostMapping("/activate")
+	public ResponseEntity<Payload> activate(@RequestBody Payload payment) throws Exception {
+		logger.info("requestId={}|operazione=activate|esito=OK", "123456");
+		
+		long startTime = System.currentTimeMillis();
+		
+		ActivateCommand command = beanFactory.getBean(ActivateCommand.class, payment);
+		Payload result = command.execute();
+		
+		logger.info("requestId={}|richiesta=fine|durataOperazione={}{}", "654321",(System.currentTimeMillis() - startTime)," ms");
+
+		return ResponseEntity.ok(result);
 	}
 
+	@PostMapping("/docSignedOffered")
+	public ResponseEntity<Payload> docSignedOffered(@RequestBody Payload payment) throws Exception {
+		logger.info("requestId={}|operazione=docSignedOffered|esito=OK", "123456");
+		
+		long startTime = System.currentTimeMillis();
+		
+		DocSignedOfferedCommand command = beanFactory.getBean(DocSignedOfferedCommand.class, payment);
+		Payload result = command.execute();
+		
+		logger.info("requestId={}|richiesta=fine|durataOperazione={}{}", "654321",(System.currentTimeMillis() - startTime)," ms");
+
+		return ResponseEntity.ok(result);
+	}
+	
+	@PostMapping("/partiallySignedOffered")
+	public ResponseEntity<Payload> partiallySignedOffered(@RequestBody Payload payment) throws Exception {
+		logger.info("requestId={}|operazione=partiallySignedOffered|esito=OK", "123456");
+		
+		long startTime = System.currentTimeMillis();
+		
+		PartiallySignedCommand command = beanFactory.getBean(PartiallySignedCommand.class, payment);
+		Payload result = command.execute();
+		
+		logger.info("requestId={}|richiesta=fine|durataOperazione={}{}", "654321",(System.currentTimeMillis() - startTime)," ms");
+
+		return ResponseEntity.ok(result);
+	}
+	
+	@PostMapping("/firmaOfferSigned")
+	public ResponseEntity<Payload> firmaOfferSigned(@RequestBody Payload payment) throws Exception {
+		logger.info("requestId={}|operazione=firmaOfferSigned|esito=OK", "123456");
+		
+		long startTime = System.currentTimeMillis();
+		
+		FirmaOfferedSignedCommand command = beanFactory.getBean(FirmaOfferedSignedCommand.class, payment);
+		Payload result = command.execute();
+		
+		logger.info("requestId={}|richiesta=fine|durataOperazione={}{}", "654321",(System.currentTimeMillis() - startTime)," ms");
+
+		return ResponseEntity.ok(result);
+	}
+	
+	@PostMapping("/offerSaved")
+	public ResponseEntity<Payload> offerSaved(@RequestBody Payload payment) throws Exception {
+		logger.info("requestId={}|operazione=offerSaved|esito=OK", "123456");
+		
+		long startTime = System.currentTimeMillis();
+		
+		OfferedSavedCommand command = beanFactory.getBean(OfferedSavedCommand.class, payment);
+		Payload result = command.execute();
+		
+		logger.info("requestId={}|richiesta=fine|durataOperazione={}{}", "654321",(System.currentTimeMillis() - startTime)," ms");
+
+		return ResponseEntity.ok(result);
+	}
+	
+	@PostMapping("/offerReady")
+	public ResponseEntity<Payload> offerReady(@RequestBody Payload payment) throws Exception {
+		logger.info("requestId={}|operazione=offerReady|esito=OK", "123456");
+		
+		long startTime = System.currentTimeMillis();
+		
+		OfferReadyCommand command = beanFactory.getBean(OfferReadyCommand.class, payment);
+		Payload result = command.execute();
+		
+		logger.info("requestId={}|richiesta=fine|durataOperazione={}{}", "654321",(System.currentTimeMillis() - startTime)," ms");
+
+		return ResponseEntity.ok(result);
+	}
+	
+	@PostMapping("/startSign")
+	public ResponseEntity<Payload> startSign(@RequestBody Payload payment) throws Exception {
+		logger.info("requestId={}|operazione=startSign|esito=OK", "123456");
+		
+		long startTime = System.currentTimeMillis();
+		
+		FirmaOfferedSignedCommand command = beanFactory.getBean(FirmaOfferedSignedCommand.class, payment);
+		Payload result = command.execute();
+		
+		logger.info("requestId={}|richiesta=fine|durataOperazione={}{}", "654321",(System.currentTimeMillis() - startTime)," ms");
+
+		return ResponseEntity.ok(result);
+	}
+
+	public Msad0Service getService() {
+		return service;
+	}
 }
+
+/*
+//delete
+	@PostMapping(path = "/delete")
+	public Payload save(@RequestBody Payload payload) {
+		return this.service.delete(payload);
+	}
+*/
