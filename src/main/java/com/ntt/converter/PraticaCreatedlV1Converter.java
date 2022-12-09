@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component;
 import com.ntt.entity.Payload;
 
 @Component
-public class FirmaOfferedSignedConverter {
+public class PraticaCreatedlV1Converter {
 
 	public Payload convertPayloandToPayload(Payload input) {
 		// Metodo per fare conversioni

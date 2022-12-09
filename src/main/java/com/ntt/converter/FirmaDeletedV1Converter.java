@@ -4,10 +4,10 @@ import org.springframework.stereotype.Component;
 import com.ntt.entity.Payload;
 
 @Component
-public class DeleteConverter {
-	
+public class FirmaDeletedV1Converter {
+
 	public Payload convertPayloandToPayload(Payload input) {
-		// Metodo per fare converzioni 
+		// Metodo per fare conversioni
 		return input;
 	}
 }

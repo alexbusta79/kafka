@@ -4,31 +4,31 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import com.ntt.converter.StartSignConverter;
+import com.ntt.converter.*;
 import com.ntt.entity.Payload;
 import com.ntt.exceptions.Msad0ForbiddenException;
 import com.ntt.service.Msad0EventsService;
 
 @Component
 @Scope("prototype")
-public class StartSignCommand extends BaseCommand<Payload> {
+public class PraticaUpdatedCommand extends BaseCommand<Payload> {
 
 	@Autowired
 	private Msad0EventsService service;
 
 	@Autowired
-	private StartSignConverter converter;
+	private PraticaUpdatedConverter converter;
 
 	private final Payload payload;
 
-	public StartSignCommand(Payload payload) {
+	public PraticaUpdatedCommand(Payload payload) {
 		this.payload = payload;
 	}
 
 	@Override
 	public Payload doExecute() throws Exception {
 		logger.info("requestId={}|richiesta=fine|durataOperazione={}{}", "654321", (System.currentTimeMillis()), " ms");
-		Payload payloadResponse = this.service.firmaStartSign(payload);
+		Payload payloadResponse = this.service.praticaUpdated(payload);
 		return this.converter.convertPayloandToPayload(payloadResponse);
 	}
 
