@@ -3,7 +3,9 @@ package com.ntt.controller;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,9 +29,10 @@ public class Msad0Controller extends BaseController {
 	@Autowired
 	private BeanFactory beanFactory;
 	
+	@GetMapping("/PRATICA_ACTIVATE")
 	@PostMapping("/PRATICA_ACTIVATE")
-	public ResponseEntity<Payload> activate(@RequestBody Payload payment) throws Exception {
-		logger.info("requestId={}|operazione=activate|esito=OK", "123456");
+	public ResponseEntity<Payload> praticaActivate(@RequestBody Payload payment) throws Exception {
+		logger.info("requestId={}|operazione=praticaActivate|esito=OK", "123456");
 		
 		long startTime = System.currentTimeMillis();
 		
@@ -42,8 +45,8 @@ public class Msad0Controller extends BaseController {
 	}
 	
 	@PostMapping("/PRATICA_CANCEL")
-	public ResponseEntity<Payload> cancel(@RequestBody Payload payment) throws Exception {
-		logger.info("requestId={}|operazione=cancel|esito=OK", "123456");
+	public ResponseEntity<Payload> praticaCancel(@RequestBody Payload payment) throws Exception {
+		logger.info("requestId={}|operazione=praticaCancel|esito=OK", "123456");
 		
 		long startTime = System.currentTimeMillis();
 		
@@ -55,9 +58,9 @@ public class Msad0Controller extends BaseController {
 		return ResponseEntity.ok(result);
 	}
 	
-	@PostMapping("/PRATICA_CREATA")
-	public ResponseEntity<Payload> created(@RequestBody Payload payment) throws Exception {
-		logger.info("requestId={}|operazione=created|esito=OK", "123456");
+	@GetMapping("/PRATICA_CREATA")
+	public ResponseEntity<Payload> praticaCreated(@RequestBody Payload payment) throws Exception {
+		logger.info("requestId={}|operazione=praticaCreated|esito=OK", "123456");
 		
 		long startTime = System.currentTimeMillis();
 		
@@ -69,9 +72,9 @@ public class Msad0Controller extends BaseController {
 		return ResponseEntity.ok(result);
 	}
 	
-	@PostMapping("/PRATICA_DELETED")
-	public ResponseEntity<Payload> deleted(@RequestBody Payload payment) throws Exception {
-		logger.info("requestId={}|operazione=deleted|esito=OK", "123456");
+	@GetMapping("/PRATICA_DELETED")
+	public ResponseEntity<Payload> praticaDeleted(@RequestBody Payload payment) throws Exception {
+		logger.info("requestId={}|operazione=praticaDeleted|esito=OK", "123456");
 		
 		long startTime = System.currentTimeMillis();
 		
@@ -83,9 +86,10 @@ public class Msad0Controller extends BaseController {
 		return ResponseEntity.ok(result);
 	}
 	
+	@PutMapping("/PRATICA_DELETE")
 	@PostMapping("/PRATICA_DELETE")
-	public ResponseEntity<Payload> delete(@RequestBody Payload payment) throws Exception {
-		logger.info("requestId={}|operazione=deòete|esito=OK", "123456");
+	public ResponseEntity<Payload> praticaDelete(@RequestBody Payload payment) throws Exception {
+		logger.info("requestId={}|operazione=praticaDelete|esito=OK", "123456");
 		
 		long startTime = System.currentTimeMillis();
 		
@@ -98,8 +102,8 @@ public class Msad0Controller extends BaseController {
 	}
 
 	@PostMapping("/PRATICA_PARTIALLY_SIGNED")
-	public ResponseEntity<Payload> partiallySigned(@RequestBody Payload payment) throws Exception {
-		logger.info("requestId={}|operazione=partiallySigned|esito=OK", "123456");
+	public ResponseEntity<Payload> praticaPartiallySigned(@RequestBody Payload payment) throws Exception {
+		logger.info("requestId={}|operazione=praticaPartiallySigned|esito=OK", "123456");
 		
 		long startTime = System.currentTimeMillis();
 		
@@ -112,8 +116,8 @@ public class Msad0Controller extends BaseController {
 	}
 	
 	@PostMapping("/PRATICA_RETRIEVED_V1")
-	public ResponseEntity<Payload> praticaRetrieved(@RequestBody Payload payment) throws Exception {
-		logger.info("requestId={}|operazione=praticaRetrieved|esito=OK", "123456");
+	public ResponseEntity<Payload> praticaPraticaRetrieved(@RequestBody Payload payment) throws Exception {
+		logger.info("requestId={}|operazione=praticaPraticaRetrieved|esito=OK", "123456");
 		
 		long startTime = System.currentTimeMillis();
 		
@@ -126,8 +130,8 @@ public class Msad0Controller extends BaseController {
 	}
 	
 	@PostMapping("/PRATICA_SIGNED")
-	public ResponseEntity<Payload> praticaSigned(@RequestBody Payload payment) throws Exception {
-		logger.info("requestId={}|operazione=praticaSigned|esito=OK", "123456");
+	public ResponseEntity<Payload> praticaPraticaSigned(@RequestBody Payload payment) throws Exception {
+		logger.info("requestId={}|operazione=praticaPraticaSigned|esito=OK", "123456");
 		
 		long startTime = System.currentTimeMillis();
 		
@@ -139,9 +143,9 @@ public class Msad0Controller extends BaseController {
 		return ResponseEntity.ok(result);
 	}
 	
-	@PostMapping("/PRATICA_UPDATED")
+	@GetMapping("/PRATICA_UPDATED")
 	public ResponseEntity<Payload> praticaUpdated(@RequestBody Payload payment) throws Exception {
-		logger.info("requestId={}|operazione=updated|esito=OK", "123456");
+		logger.info("requestId={}|operazione=praticaUpdated|esito=OK", "123456");
 		
 		long startTime = System.currentTimeMillis();
 		
@@ -153,7 +157,7 @@ public class Msad0Controller extends BaseController {
 		return ResponseEntity.ok(result);
 	}
 	
-	@PostMapping("/FIRMA_DELETED")
+	@GetMapping("/FIRMA_DELETED")
 	public ResponseEntity<Payload> firmaDeleted(@RequestBody Payload payment) throws Exception {
 		logger.info("requestId={}|operazione=firmaDeleted|esito=OK", "123456");
 		
@@ -167,9 +171,9 @@ public class Msad0Controller extends BaseController {
 		return ResponseEntity.ok(result);
 	}
 	
-	@PostMapping("/DOCUMENTALE_DELETED")
+	@GetMapping("/DOCUMENTALE_DELETED")
 	public ResponseEntity<Payload> documentaleDeleted(@RequestBody Payload payment) throws Exception {
-		logger.info("requestId={}|operazione=firmaDeleted|esito=OK", "123456");
+		logger.info("requestId={}|operazione=documentaleDeleted|esito=OK", "123456");
 		
 		long startTime = System.currentTimeMillis();
 		
@@ -181,125 +185,3 @@ public class Msad0Controller extends BaseController {
 		return ResponseEntity.ok(result);
 	}
 }
-
-/*
-//delete
-	@PostMapping(path = "/delete")
-	public Payload save(@RequestBody Payload payload) {
-		return this.service.delete(payload);
-	}
-*/
-
-/*
-@PostMapping("/delete")
-public ResponseEntity<Payload> delete(@RequestBody Payload payment) throws Exception {
-	logger.info("requestId={}|operazione=delete|esito=OK", "123456");
-	
-	long startTime = System.currentTimeMillis();
-	
-	DeleteCommand command = beanFactory.getBean(DeleteCommand.class, payment);
-	Payload result = command.execute();
-	
-	logger.info("requestId={}|richiesta=fine|durataOperazione={}{}", "654321",(System.currentTimeMillis() - startTime)," ms");
-
-	return ResponseEntity.ok(result);
-}
-
-@PostMapping("/activate")
-public ResponseEntity<Payload> activate(@RequestBody Payload payment) throws Exception {
-	logger.info("requestId={}|operazione=activate|esito=OK", "123456");
-	
-	long startTime = System.currentTimeMillis();
-	
-	ActivateCommand command = beanFactory.getBean(ActivateCommand.class, payment);
-	Payload result = command.execute();
-	
-	logger.info("requestId={}|richiesta=fine|durataOperazione={}{}", "654321",(System.currentTimeMillis() - startTime)," ms");
-
-	return ResponseEntity.ok(result);
-}
-
-@PostMapping("/docSignedOffered")
-public ResponseEntity<Payload> docSignedOffered(@RequestBody Payload payment) throws Exception {
-	logger.info("requestId={}|operazione=docSignedOffered|esito=OK", "123456");
-	
-	long startTime = System.currentTimeMillis();
-	
-	DocSignedOfferedCommand command = beanFactory.getBean(DocSignedOfferedCommand.class, payment);
-	Payload result = command.execute();
-	
-	logger.info("requestId={}|richiesta=fine|durataOperazione={}{}", "654321",(System.currentTimeMillis() - startTime)," ms");
-
-	return ResponseEntity.ok(result);
-}
-
-@PostMapping("/partiallySignedOffered")
-public ResponseEntity<Payload> partiallySignedOffered(@RequestBody Payload payment) throws Exception {
-	logger.info("requestId={}|operazione=partiallySignedOffered|esito=OK", "123456");
-	
-	long startTime = System.currentTimeMillis();
-	
-	PartiallySignedCommand command = beanFactory.getBean(PartiallySignedCommand.class, payment);
-	Payload result = command.execute();
-	
-	logger.info("requestId={}|richiesta=fine|durataOperazione={}{}", "654321",(System.currentTimeMillis() - startTime)," ms");
-
-	return ResponseEntity.ok(result);
-}
-
-@PostMapping("/firmaOfferSigned")
-public ResponseEntity<Payload> firmaOfferSigned(@RequestBody Payload payment) throws Exception {
-	logger.info("requestId={}|operazione=firmaOfferSigned|esito=OK", "123456");
-	
-	long startTime = System.currentTimeMillis();
-	
-	FirmaOfferedSignedCommand command = beanFactory.getBean(FirmaOfferedSignedCommand.class, payment);
-	Payload result = command.execute();
-	
-	logger.info("requestId={}|richiesta=fine|durataOperazione={}{}", "654321",(System.currentTimeMillis() - startTime)," ms");
-
-	return ResponseEntity.ok(result);
-}
-
-@PostMapping("/offerSaved")
-public ResponseEntity<Payload> offerSaved(@RequestBody Payload payment) throws Exception {
-	logger.info("requestId={}|operazione=offerSaved|esito=OK", "123456");
-	
-	long startTime = System.currentTimeMillis();
-	
-	OfferedSavedCommand command = beanFactory.getBean(OfferedSavedCommand.class, payment);
-	Payload result = command.execute();
-	
-	logger.info("requestId={}|richiesta=fine|durataOperazione={}{}", "654321",(System.currentTimeMillis() - startTime)," ms");
-
-	return ResponseEntity.ok(result);
-}
-
-@PostMapping("/offerReady")
-public ResponseEntity<Payload> offerReady(@RequestBody Payload payment) throws Exception {
-	logger.info("requestId={}|operazione=offerReady|esito=OK", "123456");
-	
-	long startTime = System.currentTimeMillis();
-	
-	OfferReadyCommand command = beanFactory.getBean(OfferReadyCommand.class, payment);
-	Payload result = command.execute();
-	
-	logger.info("requestId={}|richiesta=fine|durataOperazione={}{}", "654321",(System.currentTimeMillis() - startTime)," ms");
-
-	return ResponseEntity.ok(result);
-}
-
-@PostMapping("/startSign")
-public ResponseEntity<Payload> startSign(@RequestBody Payload payment) throws Exception {
-	logger.info("requestId={}|operazione=startSign|esito=OK", "123456");
-	
-	long startTime = System.currentTimeMillis();
-	
-	FirmaOfferedSignedCommand command = beanFactory.getBean(FirmaOfferedSignedCommand.class, payment);
-	Payload result = command.execute();
-	
-	logger.info("requestId={}|richiesta=fine|durataOperazione={}{}", "654321",(System.currentTimeMillis() - startTime)," ms");
-
-	return ResponseEntity.ok(result);
-}
-*/

@@ -4,9 +4,12 @@ import lombok.Data;
 
 @Data
 public class Payload {
-	private Long id;
-	private String name;
-	private String email;
-	private Long idPratica;
 	private Long idSuperpratica;
+	private Long idPratica;
+	private String tipoOperazione;
+	private String tipoFirma;
+	private String scadenzaPratica;
+	private String canale;
+	private String watermark;
+	private String tipoAnnullo;
 }
