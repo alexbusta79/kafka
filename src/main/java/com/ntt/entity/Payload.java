@@ -10,6 +10,14 @@ public class Payload {
 	private String tipoFirma;
 	private String scadenzaPratica;
 	private String canale;
-	private String watermark;
 	private String tipoAnnullo;
+	private String applicazione; 
+	private String codSocieta;
+	private String codFiliale;
+	private String famigliaDocumentale;
+	private String ssa;
+	private String codProdotto;
+	private String tipoOfferta;
+	private String totDocumentiPratica;
+
 }

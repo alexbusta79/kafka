@@ -89,7 +89,19 @@ public class Msad0EventsService {
 		event.setDate(new Date());
 		event.setIdPratica(payload.getIdPratica());
 		event.setIdSuperpratica(payload.getIdSuperpratica());
-
+		event.setApplicazione(payload.getApplicazione());
+		event.setCanale(payload.getCanale());
+		event.setTipoOperazione(payload.getTipoOperazione());
+		event.setTipoFirma(payload.getTipoFirma());
+		event.setScadenzaPratica(payload.getScadenzaPratica());
+		event.setCodSocieta(payload.getCodSocieta());
+		event.setCodFiliale(payload.getCodFiliale());
+		event.setFamigliaDocumentale(payload.getFamigliaDocumentale());
+		event.setSsa(payload.getSsa());
+		event.setTipoOfferta(payload.getTipoOfferta());
+		event.setTotDocumentiPratica(payload.getTotDocumentiPratica());
+		event.setCodProdotto(payload.getCodProdotto());
+		
 		this.producer.send(this.topicPraticaCreatedlV1, event);
 
 		return payload;
