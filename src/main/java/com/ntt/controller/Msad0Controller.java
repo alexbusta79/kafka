@@ -29,7 +29,7 @@ public class Msad0Controller extends BaseController {
 	@Autowired
 	private BeanFactory beanFactory;
 	
-	@GetMapping("/PRATICA_ACTIVATE")
+//	@GetMapping("/PRATICA_ACTIVATE")
 	@PostMapping("/PRATICA_ACTIVATE")
 	public ResponseEntity<Payload> praticaActivate(@RequestBody Payload payment) throws Exception {
 		logger.info("requestId={}|operazione=praticaActivate|esito=OK", "123456");
@@ -58,7 +58,8 @@ public class Msad0Controller extends BaseController {
 		return ResponseEntity.ok(result);
 	}
 	
-	@GetMapping("/PRATICA_CREATA")
+//	@GetMapping("/PRATICA_CREATA")
+	@PostMapping("/PRATICA_CREATA")
 	public ResponseEntity<Payload> praticaCreated(@RequestBody Payload payment) throws Exception {
 		logger.info("requestId={}|operazione=praticaCreated|esito=OK", "123456");
 		
@@ -72,7 +73,8 @@ public class Msad0Controller extends BaseController {
 		return ResponseEntity.ok(result);
 	}
 	
-	@GetMapping("/PRATICA_DELETED")
+//	@GetMapping("/PRATICA_DELETED")
+	@PostMapping("/PRATICA_DELETED")
 	public ResponseEntity<Payload> praticaDeleted(@RequestBody Payload payment) throws Exception {
 		logger.info("requestId={}|operazione=praticaDeleted|esito=OK", "123456");
 		
@@ -86,7 +88,7 @@ public class Msad0Controller extends BaseController {
 		return ResponseEntity.ok(result);
 	}
 	
-	@PutMapping("/PRATICA_DELETE")
+//	@PutMapping("/PRATICA_DELETE")
 	@PostMapping("/PRATICA_DELETE")
 	public ResponseEntity<Payload> praticaDelete(@RequestBody Payload payment) throws Exception {
 		logger.info("requestId={}|operazione=praticaDelete|esito=OK", "123456");
@@ -143,7 +145,8 @@ public class Msad0Controller extends BaseController {
 		return ResponseEntity.ok(result);
 	}
 	
-	@GetMapping("/PRATICA_UPDATED")
+//	@GetMapping("/PRATICA_UPDATED")
+	@PostMapping("/PRATICA_UPDATED")
 	public ResponseEntity<Payload> praticaUpdated(@RequestBody Payload payment) throws Exception {
 		logger.info("requestId={}|operazione=praticaUpdated|esito=OK", "123456");
 		
@@ -157,7 +160,8 @@ public class Msad0Controller extends BaseController {
 		return ResponseEntity.ok(result);
 	}
 	
-	@GetMapping("/FIRMA_DELETED")
+//	@GetMapping("/FIRMA_DELETED")
+	@PostMapping("/FIRMA_DELETED")
 	public ResponseEntity<Payload> firmaDeleted(@RequestBody Payload payment) throws Exception {
 		logger.info("requestId={}|operazione=firmaDeleted|esito=OK", "123456");
 		
@@ -171,7 +175,8 @@ public class Msad0Controller extends BaseController {
 		return ResponseEntity.ok(result);
 	}
 	
-	@GetMapping("/DOCUMENTALE_DELETED")
+//	@GetMapping("/DOCUMENTALE_DELETED")
+	@PostMapping("/DOCUMENTALE_DELETED")
 	public ResponseEntity<Payload> documentaleDeleted(@RequestBody Payload payment) throws Exception {
 		logger.info("requestId={}|operazione=documentaleDeleted|esito=OK", "123456");
 		

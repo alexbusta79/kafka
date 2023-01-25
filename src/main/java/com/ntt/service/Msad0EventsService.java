@@ -47,10 +47,10 @@ public class Msad0EventsService {
 	@Value("${topic.customer.name:SDH_SVIL_MSAD0_PRATICA_UPDATED}")
 	private String topicPraticaUpdated;
 
-	@Value("${topic.customer.name:SDH_SVIL_MSAD0_FIRMA_DELETED_V1")
+	@Value("${topic.customer.name:SDH_SVIL_MSAD0_FIRMA_DELETED_V1}")
 	private String topicFirmaDeletedV1;
 	
-	@Value("${topic.customer.name:SDH_SVIL_MSAD0_DOCUMENTALE_DELETED_V1")
+	@Value("${topic.customer.name:SDH_SVIL_MSAD0_DOCUMENTALE_DELETED_V1}")
 	private String topicDocumentaleDeletedV1;
 	
 	public Payload praticaActivateV1(Payload payload) {
@@ -89,18 +89,6 @@ public class Msad0EventsService {
 		event.setDate(new Date());
 		event.setIdPratica(payload.getIdPratica());
 		event.setIdSuperpratica(payload.getIdSuperpratica());
-		event.setApplicazione(payload.getApplicazione());
-		event.setCanale(payload.getCanale());
-		event.setTipoOperazione(payload.getTipoOperazione());
-		event.setTipoFirma(payload.getTipoFirma());
-		event.setScadenzaPratica(payload.getScadenzaPratica());
-		event.setCodSocieta(payload.getCodSocieta());
-		event.setCodFiliale(payload.getCodFiliale());
-		event.setFamigliaDocumentale(payload.getFamigliaDocumentale());
-		event.setSsa(payload.getSsa());
-		event.setTipoOfferta(payload.getTipoOfferta());
-		event.setTotDocumentiPratica(payload.getTotDocumentiPratica());
-		event.setCodProdotto(payload.getCodProdotto());
 		
 		this.producer.send(this.topicPraticaCreatedlV1, event);
 
